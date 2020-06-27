@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Solar Enecry API- Climate Connect</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Solar Energy</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="cloud_cover" placeholder="cloud_cover" required="required" min="0" max="1" pattern= "^[0-9]\d*(\.\d+)?$" minlength="1" maxlength="10"/>
+      <input type="text" name="apparent_temperature" placeholder="apparent_temperature" required="required" pattern= "^[0-9]\d*(\.\d+)?$" minlength="1" maxlength="10" />
+  		<input type="text" name="wind_bearing" placeholder="wind_bearing" required="required" pattern= "^[0-9]\d*(\.\d+)?$" minlength="2" maxlength="10"/>
+      <input type="text" name="wind_speed" placeholder="wind_speed" required="required" pattern= "^[0-9]\d*(\.\d+)?$" minlength="1" maxlength="10"/>
+      <input type="text" name="wind_gust" placeholder="wind_gust" required="required" pattern= "^[0-9]\d*(\.\d+)?$" minlength="1" maxlength="10"/>
+      <input type="text" name="Pressure" placeholder="Pressure" required="required"  min="900" pattern= "^[0-9]\d*(\.\d+)?$" minlength="1" maxlength="10"/>
+      <input type="text" name="uv_index" placeholder="uv_index" required="required" pattern= "^[0-9]\d*(\.\d+)?$" minlength="1" maxlength="10"/>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+
+   <br>
+   <br>
+   <h2> {{ prediction_text }} </h2>
+
+ </div>
+
+
+</body>
+</html>
