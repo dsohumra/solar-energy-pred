@@ -20,7 +20,7 @@ def predict():
 
     output = round(prediction[0], 3)
 
-    return render_template('index.html', prediction_text='Energy Consumptionwill be {} Kw'.format(output))
+    return render_template('index.html', prediction_text='Energy generation will be {} Kw'.format(output))
 
 
 if __name__ == "__main__":
